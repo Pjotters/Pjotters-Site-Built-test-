@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template 1</title>
+    <style>
+        .template-section {
+            min-height: 100px;
+            border: 2px dashed #ccc;
+            margin: 10px;
+            padding: 20px;
+        }
+        .editable:hover {
+            background: #f0f0f0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header class="template-section" data-section="header">
+        <h1 class="editable" data-type="text">Jouw Website Titel</h1>
+        <nav class="editable" data-type="menu">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Over ons</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="template-section" data-section="content">
+        <div class="editable" data-type="text">
+            <p>Klik om deze tekst te bewerken</p>
+        </div>
+    </main>
+    <footer class="template-section" data-section="footer">
+        <p class="editable" data-type="text">© 2024 Jouw Website</p>
+    </footer>
+</body>
+</html> 
