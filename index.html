@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Builder</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="auth">
+        <button id="loginBtn" onclick="login()">Login met Google</button>
+        <button id="logoutBtn" onclick="logout()" style="display: none;">Uitloggen</button>
+    </div>
+    
+    <div id="editor" style="display: none;">
+        <div class="toolbar">
+            <div class="tool-group">
+                <h3>Layout</h3>
+                <button onclick="addSection()">Nieuwe Sectie</button>
+                <button onclick="addColumn()">Kolom Toevoegen</button>
+                <button onclick="addContainer()">Container</button>
+            </div>
+            
+            <div class="tool-group">
+                <h3>Content</h3>
+                <button onclick="addHeading()">Kop</button>
+                <button onclick="addParagraph()">Tekst</button>
+                <button onclick="addImage()">Afbeelding</button>
+                <button onclick="addButton()">Button</button>
+            </div>
+            
+            <div class="tool-group">
+                <h3>Stijl</h3>
+                <button onclick="openStyleEditor()">CSS Editor</button>
+                <input type="color" id="colorPicker" onchange="changeColor(this.value)">
+                <select id="fontSelector" onchange="changeFont(this.value)">
+                    <option value="Arial">Arial</option>
+                    <option value="Helvetica">Helvetica</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                </select>
+            </div>
+            
+            <div class="tool-group">
+                <h3>Export</h3>
+                <button onclick="exportWebsite()">Download Website</button>
+                <button onclick="viewCode()">Bekijk Code</button>
+            </div>
+        </div>
+        <div id="content" contenteditable="true">
+            <h1>Welkom op mijn website</h1>
+            <p>Begin hier met typen...</p>
+        </div>
+        <div id="websites-overview" style="display: none;">
+            <h2>Mijn Websites</h2>
+            <button onclick="createNewWebsite()">Nieuwe Website</button>
+            <div id="websites-list"></div>
+        </div>
+    </div>
+
+    <div class="template-selector" id="templateSelector">
+        <div class="template-tabs">
+            <button class="tab-btn active" onclick="showTemplateCategory('buttons')">Knoppen</button>
+            <button class="tab-btn" onclick="showTemplateCategory('text')">Tekst</button>
+            <button class="tab-btn" onclick="showTemplateCategory('media')">Media</button>
+            <button class="tab-btn" onclick="showTemplateCategory('sections')">Secties</button>
+        </div>
+        <div class="template-content" id="templateContent">
+            <!-- Templates worden hier dynamisch geladen -->
+        </div>
+    </div>
+
+    <script type="module" src="js/firebase-config.js"></script>
+    <script type="module" src="js/editor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+</body>
+</html> 
